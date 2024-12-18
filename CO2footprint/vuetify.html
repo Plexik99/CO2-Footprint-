@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CO₂ Emissionsdaten</title>
+  <!-- Vuetify CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@3.5.7/dist/vuetify.min.css" rel="stylesheet">
+  <!-- Roboto Font & Material Design Icons -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet">
+  <style>
+    h1 {
+      margin-bottom: 20px;
+      color: #4caf50;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <v-app>
+      <v-container>
+        <!-- Titel -->
+        <h1>CO₂-Emissionsdaten</h1>
+
+        <!-- Tabelle mit Filterfunktion -->
+        <v-data-table
+          :headers="headers"
+          :items="emissionsData"
+          :search="search"
+          :items-per-page="5"
+          class="elevation-2"
+          density="compact"
+        >
+          <!-- Toolbar für die Suchfunktion -->
+          <template v-slot:top>
+            <v-toolbar flat>
+              <v-toolbar-title>Filtere nach Unternehmen oder Land</v-toolbar-title>
+              <v-spacer></v-spacer>
+              <v-text-field
+                v-model="search"
+                label="Suche..."
+                prepend-inner-icon="mdi-magnify"
+                single-line
+                hide-details
+              ></v-text-field>
+            </v-toolbar>
+          </template>
+        </v-data-table>
+      </v-container>
+    </v-app>
+  </div>
+
+  <!-- Vue 3 und Vuetify JS -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@3.3.4/dist/vue.global.prod.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@3.5.7/dist/vuetify.min.js"></script>
+
+  <script>
+    const { createApp } = Vue;
+    const { createVuetify } = Vuetify;
+
+    // Vue App erstellen
+    const app = createApp({
+      data() {
+        return {
+          // Tabellen-Header
+          headers: [
+            { text: "Unternehmen", value: "company" },
+            { text: "Land", value: "country" },
+            { text: "CO₂ Emissionen (Tonnen)", value: "emissions" },
+            { text: "Jahr", value: "year" },
+          ],
+          // Fiktive CO₂-Emissionsdaten
+          emissionsData: [
+            { company: "Firma A", country: "Deutschland", emissions: 5000, year: 2024 },
+            { company: "Firma B", country: "USA", emissions: 12000, year: 2024 },
+            { company: "Firma C", country: "China", emissions: 15000, year: 2024 },
+            { company: "Firma D", country: "Indien", emissions: 11000, year: 2024 },
+            { company: "Firma E", country: "Deutschland", emissions: 7000, year: 2024 },
+            { company: "Firma F", country: "Brasilien", emissions: 4000, year: 2024 },
+            { company: "Firma G", country: "USA", emissions: 9500, year: 2024 },
+            { company: "Firma H", country: "China", emissions: 20000, year: 2024 },
+            { company: "Firma I", country: "Indien", emissions: 134000, year: 2024 },
+            { company: "Firma J", country: "China", emissions: 8760, year: 2024 },
+            { company: "Firma K", country: "China", emissions: 8700, year: 2024 },
+            { company: "Firma L", country: "China", emissions: 85600, year: 2024 },
+            { company: "Firma M", country: "China", emissions: 2400, year: 2024 },
+            { company: "Firma N", country: "China", emissions: 430, year: 2024 },
+            { company: "Firma O", country: "China", emissions: 235500, year: 2024 },
+            { company: "Firma P", country: "China", emissions: 5325000, year: 2024 },
+            { company: "Firma Q", country: "China", emissions: 344, year: 2024 },
+            { company: "Firma R", country: "China", emissions: 2345, year: 2024 },
+            { company: "Firma S", country: "China", emissions: 2400, year: 2024 },
+
+
+          ],
+          // Suchwert für Filterfunktion
+          search: "",
+        };
+      },
+    });
+
+    // Vuetify einbinden
+    const vuetify = createVuetify();
+    app.use(vuetify);
+
+    // App mounten
+    app.mount("#app");
+  </script>
+</body>
+</html>
