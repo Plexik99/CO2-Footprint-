@@ -15,16 +15,34 @@
       color: #4caf50;
       text-align: center;
     }
+    .category-row {
+      background-color: #f5f5f5;
+      font-weight: bold;
+    }
+
+    .logo {
+      width: 100px; /* Breite des Logos anpassen */
+      height: auto; /* Höhe automatisch anpassen */
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 20px; /* Abstand nach oben */
+    }
   </style>
 </head>
 <body>
   <div id="app">
     <v-app>
       <v-container>
-        <!-- Titel -->
-        <h1>CO₂-Emissionsdaten</h1>
+        <!-- Logo das wieder zurück zur start seite leitet -->
+      <a href="index.html">
+        <img src="co2-6317012_1920.jpg" alt="logo" class="logo">
+      </a>
 
-        <!-- Tabelle mit Filterfunktion -->
+        <h1>CO₂-Emissionsdaten</h1>
+        
+        
+        <!-- Tabelle mit Überbegriffe -->
         <v-data-table
           :headers="headers"
           :items="emissionsData"
@@ -36,7 +54,7 @@
           <!-- Toolbar für die Suchfunktion -->
           <template v-slot:top>
             <v-toolbar flat>
-              <v-toolbar-title>Filtere nach Unternehmen oder Land</v-toolbar-title>
+              <v-toolbar-title>Suchen/Filtern</v-toolbar-title>
               <v-spacer></v-spacer>
               <v-text-field
                 v-model="search"
@@ -46,6 +64,23 @@
                 hide-details
               ></v-text-field>
             </v-toolbar>
+          </template>
+
+          <!-- Benutzerdefinierte Zeile für Überbegriffe -->
+          <template v-slot:body="{ items }">
+            <!-- Überbegriffe -->
+            <tr class="category-row">
+              <td>Unternehmen</td>
+              <td>Land</td>
+              <td>CO₂ Emissionen (Tonnen)</td>
+
+            </tr>
+            <!-- Datenzeilen -->
+            <tr v-for="item in items" :key="item.company">
+              <td>{{ item.company }}</td>
+              <td>{{ item.country }}</td>
+              <td>{{ item.emissions }}</td>
+            </tr>
           </template>
         </v-data-table>
       </v-container>
@@ -68,32 +103,25 @@
           headers: [
             { text: "Unternehmen", value: "company" },
             { text: "Land", value: "country" },
-            { text: "CO₂ Emissionen (Tonnen)", value: "emissions" },
-            { text: "Jahr", value: "year" },
+            { text: "CO₂ Emissionen (Tonnen)", value: "emissions" }
           ],
           // Fiktive CO₂-Emissionsdaten
           emissionsData: [
-            { company: "Firma A", country: "Deutschland", emissions: 5000, year: 2024 },
-            { company: "Firma B", country: "USA", emissions: 12000, year: 2024 },
-            { company: "Firma C", country: "China", emissions: 15000, year: 2024 },
-            { company: "Firma D", country: "Indien", emissions: 11000, year: 2024 },
-            { company: "Firma E", country: "Deutschland", emissions: 7000, year: 2024 },
-            { company: "Firma F", country: "Brasilien", emissions: 4000, year: 2024 },
-            { company: "Firma G", country: "USA", emissions: 9500, year: 2024 },
-            { company: "Firma H", country: "China", emissions: 20000, year: 2024 },
-            { company: "Firma I", country: "Indien", emissions: 134000, year: 2024 },
-            { company: "Firma J", country: "China", emissions: 8760, year: 2024 },
-            { company: "Firma K", country: "China", emissions: 8700, year: 2024 },
-            { company: "Firma L", country: "China", emissions: 85600, year: 2024 },
-            { company: "Firma M", country: "China", emissions: 2400, year: 2024 },
-            { company: "Firma N", country: "China", emissions: 430, year: 2024 },
-            { company: "Firma O", country: "China", emissions: 235500, year: 2024 },
-            { company: "Firma P", country: "China", emissions: 5325000, year: 2024 },
-            { company: "Firma Q", country: "China", emissions: 344, year: 2024 },
-            { company: "Firma R", country: "China", emissions: 2345, year: 2024 },
-            { company: "Firma S", country: "China", emissions: 2400, year: 2024 },
-
-
+            { company: "Firma A", country: "China", emissions: 15000 },
+            { company: "Firma B", country: "USA", emissions: 12000},
+            { company: "Firma C", country: "China", emissions: 15000},
+            { company: "Firma D", country: "Indien", emissions: 11000},
+            { company: "Firma E", country: "Brasilien", emissions: 7000},
+            { company: "Firma F", country: "Brasilien", emissions: 6000},
+            { company: "Firma G", country: "Frankreich", emissions: 5383},
+            { company: "Firma H", country: "Deutschland", emissions: 5030},
+            { company: "Firma I", country: "Deutschland", emissions: 5000},
+            { company: "Firma J", country: "Deutschland", emissions: 4953},
+            { company: "Firma K", country: "Italien", emissions: 4803},
+            { company: "Firma L", country: "Russland", emissions: 4734},
+            { company: "Firma M", country: "Spanien", emissions: 4634},
+            { company: "Firma N", country: "Indien", emissions: 4300},
+            { company: "Firma O", country: "USA", emissions: 3400},
           ],
           // Suchwert für Filterfunktion
           search: "",
