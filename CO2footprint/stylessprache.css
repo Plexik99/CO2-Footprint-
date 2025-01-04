@@ -15,8 +15,8 @@ body {
   
   h1 {
     margin: 0;
-    font-size: 24px; /* Größere Schriftgröße für bessere Lesbarkeit */
-    color: #4caf50; /* Schriftfarbe grün */
+    font-size: 24px; 
+    color: #4caf50; 
     text-align: right;
     }
   
@@ -67,7 +67,7 @@ body {
     font-size: 18px;
     }
   
-  /* Responsive Stile */
+  /* Responsive Stile*/
   @media screen and (max-width: 600px) {
     h1 {
       font-size: 20px; /* Kleinere Schriftgröße für Handys */
@@ -89,7 +89,7 @@ body {
     }
   
     img {
-      width: 40px; /* Kleinere Breite des Logos für Handys */
+      width: 40px; /* Kleinere Breite des Logos "" */
     }
   
     h2 {

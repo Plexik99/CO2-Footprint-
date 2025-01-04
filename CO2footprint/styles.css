@@ -14,8 +14,8 @@ header {
 
 h1 {
   margin: 0;
-  font-size: 24px; /* Größere Schriftgröße für bessere Lesbarkeit */
-  color: #4caf50; /* Schriftfarbe grün */
+  font-size: 24px;
+  color: #4caf50; 
 }
 
 nav ul {
@@ -48,8 +48,8 @@ nav ul li a:hover {
 }
 
 img {
-  width: 80px; /* Breite des Logos */
-  height: auto; /* Höhe des logos */
+  width: 80px; 
+  height: auto; 
   margin: 10px;
 }
 
@@ -65,7 +65,7 @@ p {
   font-size: 18px;
 }
 
-/* Responsive Stile */
+/* Responsive Stile für Handy */
 @media screen and (max-width: 600px) {
   h1 {
     font-size: 20px; /* Kleinere Schriftgröße für Handys */
@@ -85,7 +85,7 @@ p {
   }
 
   img {
-    width: 40px; /* Kleinere Breite des Logos für Handys */
+    width: 40px; /* Kleinere Breite des Logos "" */
   }
 
   h2 {
