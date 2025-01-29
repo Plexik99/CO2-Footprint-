@@ -66,14 +66,14 @@ p {
   font-size: 18px;
 }
 
-/* Responsive Stile für Handy */
+
 @media screen and (max-width: 600px) {
   h1 {
-    font-size: 20px; /* Kleinere Schriftgröße für Handys */
+    font-size: 20px; 
   }
 
   nav ul {
-    flex-direction: column; /* Navigation untereinander anordnen */
+    flex-direction: column;
   }
 
   nav ul li {
@@ -82,11 +82,11 @@ p {
 
   nav ul li a {
     padding: 10px;
-    font-size: 16px; /* Kleinere Schriftgröße für Handys */
+    font-size: 16px; 
   }
 
   img {
-    width: 40px; /* Kleinere Breite des Logos "" */
+    width: 40px;
   }
 
   h2 {
