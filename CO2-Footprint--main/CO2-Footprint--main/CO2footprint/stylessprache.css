@@ -50,10 +50,9 @@ body {
     }
   
   img {
-    width: 100%;
-    max-width: 80px;
-    margin: 0 auto;
-    display: block;
+    width: 80px; /* Breite des Logos */
+    height: auto; /* Höhe des logos */
+    margin: 10px;
     } 
   
   div {

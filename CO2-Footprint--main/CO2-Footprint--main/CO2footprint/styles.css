@@ -48,10 +48,9 @@ nav ul li a:hover {
 }
 
 img {
-  width: 100%;
-  max-width: 80px;
-  margin: 0 auto;
-  display: block;
+  width: 80px; 
+  height: auto; 
+  margin: 10px;
 }
 
 div {
@@ -66,14 +65,14 @@ p {
   font-size: 18px;
 }
 
-
+/* Responsive Stile für Handy */
 @media screen and (max-width: 600px) {
   h1 {
-    font-size: 20px; 
+    font-size: 20px; /* Kleinere Schriftgröße für Handys */
   }
 
   nav ul {
-    flex-direction: column;
+    flex-direction: column; /* Navigation untereinander anordnen */
   }
 
   nav ul li {
@@ -82,11 +81,11 @@ p {
 
   nav ul li a {
     padding: 10px;
-    font-size: 16px; 
+    font-size: 16px; /* Kleinere Schriftgröße für Handys */
   }
 
   img {
-    width: 40px;
+    width: 40px; /* Kleinere Breite des Logos "" */
   }
 
   h2 {
